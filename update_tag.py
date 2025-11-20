@@ -22,6 +22,7 @@ try:
             print(f'New version is {version_s}')
             subprocess.run(['git', 'tag', version_s, last_commit])
             print('Successful tagged last commit')
+            subprocess.run(['git', 'push', '--tags'])
             sys.exit(0)
         else:
             if last_tag[0] == 'v':
@@ -47,6 +48,7 @@ try:
         print(f'New version is {version_s}')
         subprocess.run(['git', 'tag', version_s, last_commit])
         print('Successful tagged last commit')
+        subprocess.run(['git', 'push', '--tags'])
     else:
         print('Commit does have a tag')
 except ValueError:
