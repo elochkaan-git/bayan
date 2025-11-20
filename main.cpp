@@ -141,12 +141,13 @@ private:
     std::ifstream first(a.string(), std::ios::binary);
     std::ifstream second(b.string(), std::ios::binary);
 
-    char fBuffer[blockSize_];
-    char sBuffer[blockSize_];
+
+    std::vector<char> fBuffer(blockSize_);
+    std::vector<char> sBuffer(blockSize_);
 
     while (first && second) {
-      first.read(fBuffer, blockSize_);
-      second.read(sBuffer, blockSize_);
+      first.read(fBuffer.data(), blockSize_);
+      second.read(sBuffer.data(), blockSize_);
 
       std::streamsize fSize = first.gcount();
       std::streamsize sSize = second.gcount();
@@ -154,7 +155,7 @@ private:
       if (fSize != sSize)
         return false;
       
-      if (crc32(fBuffer, fSize) != crc32(sBuffer, sSize))
+      if (crc32(fBuffer.data(), fSize) != crc32(sBuffer.data(), sSize))
         return false;
     }
     return true;
