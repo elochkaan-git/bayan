@@ -138,8 +138,8 @@ private:
     if (fs::file_size(a) != fs::file_size(b))
       return false;
 
-    std::ifstream first(a, std::ios::binary);
-    std::ifstream second(b, std::ios::binary);
+    std::ifstream first(a.string(), std::ios::binary);
+    std::ifstream second(b.string(), std::ios::binary);
 
     char fBuffer[blockSize_];
     char sBuffer[blockSize_];
