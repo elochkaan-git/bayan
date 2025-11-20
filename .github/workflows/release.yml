@@ -55,4 +55,4 @@ jobs:
         shell: bash
         run: |
           TAG=$(git describe --abbrev=0 --tags)
-          gh release create "${TAG}" bin/labyrinth.zip
+          gh release create "${TAG}" bin/bayan.zip
