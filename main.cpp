@@ -165,7 +165,7 @@ private:
   bool scanningLevel_;
   boost::uintmax_t fileMinSize_;
   std::vector<boost::regex> masks_;
-  boost::uintmax_t blockSize_;
+  const boost::uintmax_t blockSize_;
   std::vector<fs::path> files_;
   std::multimap<fs::path, fs::path> duplicates_;
 };
