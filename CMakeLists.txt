@@ -13,8 +13,8 @@ file(GLOB SOURCES "source/*.cpp")
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES})
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
-find_package(Boost REQUIRED COMPONENTS program_options filesystem)
-target_link_libraries(${PROJECT_NAME} PRIVATE Boost::program_options Boost::filesystem)
+find_package(Boost REQUIRED COMPONENTS program_options filesystem regex)
+target_link_libraries(${PROJECT_NAME} PRIVATE Boost::program_options Boost::filesystem Boost::regex)
 
 # For tags
 if (MSVC OR MSYS)
