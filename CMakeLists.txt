@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.18)
 project(bayan) # Add name project
 
 set(CMAKE_CXX_STANDARD 17)
@@ -13,7 +13,7 @@ file(GLOB SOURCES "source/*.cpp")
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES})
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
-find_package(Boost CONFIG REQUIRED COMPONENTS filesystem program_options regex)
+find_package(Boost REQUIRED COMPONENTS filesystem program_options regex)
 target_link_libraries(${PROJECT_NAME} PRIVATE Boost::program_options Boost::filesystem Boost::regex)
 install(FILES 
   ${Boost_FILESYSTEM_LIBRARY_RELEASE}
