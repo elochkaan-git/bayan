@@ -15,7 +15,11 @@ install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 find_package(Boost CONFIG REQUIRED COMPONENTS filesystem program_options regex)
 target_link_libraries(${PROJECT_NAME} PRIVATE Boost::program_options Boost::filesystem Boost::regex)
-install(FILES ${Boost_FILESYSTEM_LIBRARY_RELEASE} DESTINATION bin)
+install(FILES 
+  ${Boost_FILESYSTEM_LIBRARY_RELEASE}
+  ${Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE}
+  ${Boost_REGEX_LIBRARY_RELEASE}
+  DESTINATION bin)
 
 # For tags
 execute_process(
